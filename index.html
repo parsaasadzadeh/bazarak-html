@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بازارک | خرید و فروش آگهی</title>
+<!-- فونت وزیرمتن از گوگل فونت (اگر آفلاین بودید Tahoma جایگزین می‌شود) -->
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- هدر: لوگو + دکمه علاقه‌مندی‌ها + ثبت آگهی + جستجو -->
+<header><div class="wrap bar">
+  <div class="logo"><span>ب</span>بازارک</div>
+  <button id="favBtn" class="btn ghost">♡ نشان‌شده‌ها</button>
+  <button id="postBtn" class="btn">+ ثبت آگهی</button>
+  <input id="q" class="search" type="search" placeholder="دنبال چی می‌گردی؟ مثلاً گوشی، ماشین، آپارتمان...">
+</div></header>
+
+<main class="wrap">
+  <section class="hero"><h1>هر چی می‌خوای، همین‌جا پیدا کن 🛍️</h1><p>بخر، بفروش و آگهی خودت رو در چند ثانیه ثبت کن.</p></section>
+
+  <!-- دسته‌بندی‌ها -->
+  <nav class="chips" id="chips"></nav>
+
+  <!-- فیلترها -->
+  <button class="btn ghost fbtn" id="fbtn">⚙ فیلتر و مرتب‌سازی</button>
+  <div class="filters closed" id="filters">
+    <select id="city"></select>
+    <input id="min" type="number" min="0" placeholder="حداقل قیمت (تومان)">
+    <input id="max" type="number" min="0" placeholder="حداکثر قیمت (تومان)">
+    <select id="sort"><option value="new">جدیدترین</option><option value="cheap">ارزان‌ترین</option><option value="exp">گران‌ترین</option></select>
+  </div>
+
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- مودال ثبت آگهی -->
+<div class="modal hidden" id="postModal"><div class="box">
+  <button class="x" data-x>×</button>
+  <h2>ثبت آگهی جدید</h2>
+  <form id="form">
+    <input name="title" placeholder="عنوان آگهی" maxlength="60" required>
+    <div class="row"><select name="category" id="fCat"></select><select name="city" id="fCity"></select></div>
+    <div class="row"><input name="price" type="number" min="0" placeholder="قیمت (خالی = توافقی)"><input name="phone" placeholder="شماره تماس 09..." pattern="09[0-9]{9}" required></div>
+    <textarea name="desc" rows="4" placeholder="توضیحات آگهی" required></textarea>
+    <input name="image" type="file" accept="image/*">
+    <button class="btn" type="submit">انتشار آگهی</button>
+  </form>
+</div></div>
+
+<!-- مودال جزئیات آگهی -->
+<div class="modal hidden" id="detailModal"><div class="box" id="detail"></div></div>
+
+<script src="app.js"></script>
+</body>
+</html>
